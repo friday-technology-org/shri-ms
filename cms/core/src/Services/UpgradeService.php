@@ -26,10 +26,10 @@ class UpgradeService
         // Mock checking updates from a remote repository API
         return [
             'current_version' => $currentVersion,
-            'latest_version' => '1.0.1',
-            'has_update' => version_compare('1.0.1', $currentVersion, '>'),
+            'latest_version' => '1.0.2',
+            'has_update' => version_compare('1.0.2', $currentVersion, '>'),
             'release_notes' => 'Features stability improvements, new GraphQL options, and bug fixes.',
-            'download_url' => 'https://github.com/friday-technology-org/shri-ms/releases/download/v1.0.1/core.zip',
+            'download_url' => 'https://github.com/friday-technology-org/shri-ms/releases/download/v1.0.2/core.zip',
         ];
     }
 
