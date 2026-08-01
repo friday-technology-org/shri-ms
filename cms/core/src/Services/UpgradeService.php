@@ -5,6 +5,7 @@ namespace Cms\Core\Services;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Cache;
 use ZipArchive;
 
 class UpgradeService
@@ -23,14 +24,40 @@ class UpgradeService
             $currentVersion = require base_path('cms/core/version.php');
         }
 
-        // Mock checking updates from a remote repository API
-        return [
-            'current_version' => $currentVersion,
-            'latest_version' => '1.0.2',
-            'has_update' => version_compare('1.0.2', $currentVersion, '>'),
-            'release_notes' => 'Features stability improvements, new GraphQL options, and bug fixes.',
-            'download_url' => 'https://github.com/friday-technology-org/shri-ms/releases/download/v1.0.2/core.zip',
-        ];
+        // Cache the GitHub response for 1 hour (3600 seconds) to avoid rate limits
+        return Cache::remember('shri_ms_update_check', 3600, function () use ($currentVersion) {
+            try {
+                $response = Http::withHeaders([
+                    'User-Agent' => 'ShriMS-Update-Checker'
+                ])->get('https://api.github.com/repos/friday-technology-org/shri-ms/releases/latest');
+
+                if ($response->successful()) {
+                    $release = $response->json();
+                    $latestVersion = ltrim($release['tag_name'] ?? '0.0.0', 'v');
+                    $downloadUrl = $release['assets'][0]['browser_download_url'] ?? $release['zipball_url'] ?? null;
+                    $releaseNotes = $release['body'] ?? 'No release notes provided.';
+                    
+                    return [
+                        'current_version' => $currentVersion,
+                        'latest_version' => $latestVersion,
+                        'has_update' => version_compare($latestVersion, $currentVersion, '>'),
+                        'release_notes' => $releaseNotes,
+                        'download_url' => $downloadUrl,
+                    ];
+                }
+            } catch (\Exception $e) {
+                // Fallback in case of exception
+            }
+
+            // Fallback if GitHub API fails
+            return [
+                'current_version' => $currentVersion,
+                'latest_version' => $currentVersion,
+                'has_update' => false,
+                'release_notes' => '',
+                'download_url' => null,
+            ];
+        });
     }
 
     public function performUpgrade(string $zipFilePath = null): array
