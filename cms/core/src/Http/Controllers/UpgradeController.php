@@ -29,6 +29,7 @@ class UpgradeController extends Controller
         }
 
         $zipPath = $updateDir . '/core-update-' . time() . '.zip';
+        $latestVersion = null;
 
         if ($request->hasFile('update_zip')) {
             $request->validate([
@@ -39,6 +40,7 @@ class UpgradeController extends Controller
             // Fetch from GitHub
             $info = $this->upgradeService->checkVersion();
             $downloadUrl = $info['download_url'];
+            $latestVersion = $info['latest_version'];
             
             $response = \Illuminate\Support\Facades\Http::timeout(120)->get($downloadUrl);
             if ($response->successful()) {
@@ -48,7 +50,7 @@ class UpgradeController extends Controller
             }
         }
 
-        $result = $this->upgradeService->performUpgrade($zipPath);
+        $result = $this->upgradeService->performUpgrade($zipPath, $latestVersion);
 
         if ($result['success']) {
             return redirect()->back()->with('success', $result['message']);

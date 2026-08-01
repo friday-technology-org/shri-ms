@@ -26,14 +26,10 @@ Thumbs.db
 # CMS Content Directories (Ignore contents, keep folders)
 /cms-content/languages/*
 !/cms-content/languages/.gitkeep
-
 /cms-content/plugins/*
 !/cms-content/plugins/.gitkeep
-
 /cms-content/themes/*
 !/cms-content/themes/.gitkeep
 !/cms-content/themes/shri-ms
-
 /cms-content/uploads/*
 !/cms-content/uploads/.gitkeep
-

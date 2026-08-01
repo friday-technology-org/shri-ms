@@ -1,7 +1,7 @@
 # Remaining Requirements – Next Phase
 
 ## Overview
-This document outlines the next phase of development for **Shri-ms** based on the gap analysis against core WordPress functionality and the outstanding UI/UX requests.
+This document outlines the next phase of development for **LaraCMS** based on the gap analysis against core WordPress functionality and the outstanding UI/UX requests.
 
 ---
 

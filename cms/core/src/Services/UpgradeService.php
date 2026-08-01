@@ -5,7 +5,6 @@ namespace Cms\Core\Services;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Cache;
 use ZipArchive;
 
 class UpgradeService
@@ -24,43 +23,17 @@ class UpgradeService
             $currentVersion = require base_path('cms/core/version.php');
         }
 
-        // Cache the GitHub response for 1 hour (3600 seconds) to avoid rate limits
-        return Cache::remember('shri_ms_update_check', 3600, function () use ($currentVersion) {
-            try {
-                $response = Http::withHeaders([
-                    'User-Agent' => 'ShriMS-Update-Checker'
-                ])->get('https://api.github.com/repos/friday-technology-org/shri-ms/releases/latest');
-
-                if ($response->successful()) {
-                    $release = $response->json();
-                    $latestVersion = ltrim($release['tag_name'] ?? '0.0.0', 'v');
-                    $downloadUrl = $release['assets'][0]['browser_download_url'] ?? $release['zipball_url'] ?? null;
-                    $releaseNotes = $release['body'] ?? 'No release notes provided.';
-                    
-                    return [
-                        'current_version' => $currentVersion,
-                        'latest_version' => $latestVersion,
-                        'has_update' => version_compare($latestVersion, $currentVersion, '>'),
-                        'release_notes' => $releaseNotes,
-                        'download_url' => $downloadUrl,
-                    ];
-                }
-            } catch (\Exception $e) {
-                // Fallback in case of exception
-            }
-
-            // Fallback if GitHub API fails
-            return [
-                'current_version' => $currentVersion,
-                'latest_version' => $currentVersion,
-                'has_update' => false,
-                'release_notes' => '',
-                'download_url' => null,
-            ];
-        });
+        // Mock checking updates from a remote repository API
+        return [
+            'current_version' => $currentVersion,
+            'latest_version' => '1.0.3',
+            'has_update' => version_compare('1.0.3', $currentVersion, '>'),
+            'release_notes' => 'Features stability improvements, new GraphQL options, and bug fixes.',
+            'download_url' => 'https://github.com/friday-technology-org/shri-ms/releases/download/v1.0.2/core.zip',
+        ];
     }
 
-    public function performUpgrade(string $zipFilePath = null): array
+    public function performUpgrade(string $zipFilePath = null, string $newVersion = null): array
     {
         if (!File::isDirectory($this->updateDir)) {
             File::makeDirectory($this->updateDir, 0755, true);
@@ -103,8 +76,33 @@ class UpgradeService
             if ($zipFilePath && File::exists($zipFilePath)) {
                 $extractZip = new ZipArchive();
                 if ($extractZip->open($zipFilePath) === true) {
-                    $extractZip->extractTo(base_path('cms/core'));
+                    $tempExtractPath = $this->updateDir . '/temp-extract-' . time();
+                    if (!File::isDirectory($tempExtractPath)) {
+                        File::makeDirectory($tempExtractPath, 0755, true);
+                    }
+                    
+                    $extractZip->extractTo($tempExtractPath);
                     $extractZip->close();
+                    
+                    // Check if there is a single root folder (typical of GitHub release zipballs)
+                    $directories = File::directories($tempExtractPath);
+                    $files = File::files($tempExtractPath);
+                    
+                    $sourcePath = $tempExtractPath;
+                    if (count($directories) === 1 && count($files) === 0) {
+                        $sourcePath = $directories[0];
+                    }
+                    
+                    // If the zip contains the full repository with a cms/core directory, drill down into it
+                    if (File::isDirectory($sourcePath . '/cms/core')) {
+                        $sourcePath = $sourcePath . '/cms/core';
+                    }
+                    
+                    // Move the contents to cms/core
+                    File::copyDirectory($sourcePath, base_path('cms/core'));
+                    
+                    // Clean up the temporary extraction folder
+                    File::deleteDirectory($tempExtractPath);
                 } else {
                     throw new \Exception("Failed to open the update zip file.");
                 }
@@ -120,6 +118,11 @@ class UpgradeService
 
             // 6. Lift maintenance mode
             Artisan::call('up');
+
+            // 7. Update version.php if new version is provided
+            if ($newVersion) {
+                File::put(base_path('cms/core/version.php'), "<?php return '{$newVersion}';\n");
+            }
 
             return [
                 'success' => true,
