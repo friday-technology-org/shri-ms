@@ -1,0 +1,129 @@
+/*
+ * Supplemental utility definitions for classes used throughout the admin
+ * Blade views that are missing from the precompiled tailwind.min.css bundle
+ * (that file was built once from the purchased theme's original demo pages
+ * and never regenerated against this app's actual Blade templates — there is
+ * no Tailwind build step available to regenerate it here). These are exact,
+ * standard Tailwind utility semantics, not custom/ad-hoc styles, so they are
+ * safe to define globally rather than scoped per-component.
+ */
+.fixed { position: fixed; }
+.sticky { position: sticky; }
+.inset-0 { top: 0; right: 0; bottom: 0; left: 0; }
+.z-\[10\] { z-index: 10; }
+.z-\[100\] { z-index: 100; }
+.z-\[1000\] { z-index: 1000; }
+.aspect-square { aspect-ratio: 1 / 1; }
+.shadow-2xl { box-shadow: 0 25px 50px -12px rgba(0,0,0,.25); }
+.cursor-move { cursor: move; }
+.cursor-grab { cursor: grab; }
+.cursor-grabbing { cursor: grabbing; }
+.select-none { user-select: none; }
+.touch-none { touch-action: none; }
+.opacity-50 { opacity: .5; }
+.h-screen { height: 100vh; }
+.overflow-y-auto { overflow-y: auto; }
+.bg-black\/60 { background-color: rgba(0,0,0,.6); }
+.border-b-2 { border-bottom-width: 2px; }
+.col-span-full { grid-column: 1 / -1; }
+
+.max-w-md { max-width: 28rem; }
+.max-w-lg { max-width: 32rem; }
+.max-w-xl { max-width: 36rem; }
+.max-w-2xl { max-width: 42rem; }
+.max-w-4xl { max-width: 56rem; }
+.max-w-5xl { max-width: 64rem; }
+
+.my-8 { margin-top: 2rem; margin-bottom: 2rem; }
+.mt-4 { margin-top: 1rem; }
+.py-10 { padding-top: 2.5rem; padding-bottom: 2.5rem; }
+
+.space-y-2 > * + * { margin-top: .5rem; }
+.space-y-3 > * + * { margin-top: .75rem; }
+.space-y-4 > * + * { margin-top: 1rem; }
+
+.grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.grid-cols-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.grid-cols-6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+
+@media (min-width: 640px) {
+    .sm\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .sm\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+@media (min-width: 768px) {
+    .md\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .md\:grid-cols-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+}
+@media (min-width: 1024px) {
+    .lg\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .lg\:grid-cols-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+    .lg\:grid-cols-6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+}
+
+/* Success Alert Styles */
+.bg-green-100 { background-color: #d1fae5; }
+.border-green-400 { border-color: #34d399; }
+.text-green-700 { color: #047857; }
+
+/* Error Alert Styles */
+.bg-red-100 { background-color: #fee2e2; }
+.border-red-400 { border-color: #f87171; }
+.text-red-700 { color: #b91c1c; }
+
+/* Login Page/Alternative Error Alert Styles */
+.bg-red-50 { background-color: #fef2f2; }
+.border-red-200 { border-color: #fecaca; }
+.text-red-600 { color: #dc2626; }
+
+/* Spacing and margins for nested menu builder */
+.pl-7 { padding-left: 1.75rem; }
+.ml-7 { margin-left: 1.75rem; }
+
+/* Visual connectors for nested menu items */
+.mi-children {
+    position: relative;
+    min-height: 10px;
+}
+.mi-children::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 10px;
+    bottom: 20px;
+    width: 2px;
+    background: #E8EDF2;
+}
+.dark .mi-children::before {
+    background: #313442;
+}
+
+/* Additional layout spacing classes */
+.space-y-6 > * + * { margin-top: 1.5rem; }
+.mb-6 { margin-bottom: 1.5rem; }
+
+/* Missing opacity helper class */
+.opacity-0 { opacity: 0; }
+
+/* Site Health Status Badges */
+.health-badge {
+    display: inline-block;
+    padding: 6px 12px;
+    font-size: 11px;
+    font-weight: 700;
+    border-radius: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    line-height: 1;
+}
+.health-badge-good {
+    background-color: #d1fae5;
+    color: #047857;
+}
+.health-badge-warning {
+    background-color: #fef3c7;
+    color: #b45309;
+}
+.health-badge-bad {
+    background-color: #fee2e2;
+    color: #b91c1c;
+}
