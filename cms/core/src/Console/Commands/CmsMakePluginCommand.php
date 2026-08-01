@@ -31,7 +31,7 @@ class CmsMakePluginCommand extends Command
             'name' => $name,
             'slug' => $slug,
             'version' => '1.0.0',
-            'description' => 'A custom plugin for LaraCMS.',
+            'description' => 'A custom plugin for Shri-ms.',
         ], JSON_PRETTY_PRINT));
 
         $this->info("Plugin '{$name}' generated successfully at: cms-content/plugins/{$slug}");

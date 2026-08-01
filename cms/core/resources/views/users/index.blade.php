@@ -1,6 +1,6 @@
 @extends('cms-core::layouts.admin')
 
-@section('title', 'Users - LaraCMS')
+@section('title', 'Users - Shri-ms')
 
 @section('content')
 <div>

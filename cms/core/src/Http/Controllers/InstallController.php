@@ -95,7 +95,7 @@ class InstallController extends Controller
             'driver' => env('DB_CONNECTION', 'mysql'),
             'host' => env('DB_HOST', '127.0.0.1'),
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'laracms'),
+            'database' => env('DB_DATABASE', 'shrims'),
             'username' => env('DB_USERNAME', 'root'),
             'password' => env('DB_PASSWORD', ''),
         ];
@@ -111,7 +111,7 @@ class InstallController extends Controller
         $driver = $request->input('driver', 'mysql');
         $host = $request->input('host', '127.0.0.1');
         $port = $request->input('port', '3306');
-        $database = $request->input('database', 'laracms');
+        $database = $request->input('database', 'shrims');
         $username = $request->input('username', 'root');
         $password = $request->input('password', '');
 
@@ -200,7 +200,7 @@ class InstallController extends Controller
 
             // 2. Save site settings in cms_options
             update_cms_option('site_title', $request->input('site_title'));
-            update_cms_option('site_tagline', $request->input('site_tagline', 'Just another LaraCMS site'));
+            update_cms_option('site_tagline', $request->input('site_tagline', 'Just another Shri-ms site'));
             update_cms_option('site_url', config('app.url', 'http://localhost:8000'));
             update_cms_option('default_role', 'subscriber');
             update_cms_option('default_category', 'Uncategorized');

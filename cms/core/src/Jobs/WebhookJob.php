@@ -28,12 +28,12 @@ class WebhookJob implements ShouldQueue
     {
         $headers = [
             'Content-Type' => 'application/json',
-            'User-Agent' => 'LaraCMS-Webhook-Dispatcher/1.0',
+            'User-Agent' => 'Shri-ms-Webhook-Dispatcher/1.0',
         ];
 
         if ($this->secret) {
             $signature = hash_hmac('sha256', json_encode($this->payload), $this->secret);
-            $headers['X-LaraCMS-Signature'] = $signature;
+            $headers['X-Shri-ms-Signature'] = $signature;
         }
 
         try {

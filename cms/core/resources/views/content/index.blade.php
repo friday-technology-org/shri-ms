@@ -1,6 +1,6 @@
 @extends('cms-core::layouts.admin')
 
-@section('title', $cpt->plural_label . ' - LaraCMS')
+@section('title', $cpt->plural_label . ' - Shri-ms')
 
 @section('content')
 <div>

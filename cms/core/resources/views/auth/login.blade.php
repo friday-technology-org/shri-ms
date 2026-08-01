@@ -1,6 +1,6 @@
 @extends('cms-core::layouts.auth')
 
-@section('title', 'LaraCMS Admin Login')
+@section('title', 'Shri-ms Admin Login')
 
 @section('content')
 <form class="rounded-2xl bg-white mx-auto p-10 text-center max-w-[440px] my-[84px] shadow-sm dark:bg-[#1F2128]" action="{{ route('cms.login') }}" method="POST">
@@ -39,7 +39,7 @@
     </div>
   </div>
   
-  <button type="submit" class="btn normal-case h-fit min-h-fit transition-all duration-300 border-4 w-full bg-color-brands hover:bg-color-brands hover:opacity-90 border-transparent mb-[20px] py-[14px] text-white font-bold rounded-xl shadow-lg cursor-pointer text-sm">Login to LaraCMS</button>
+  <button type="submit" class="btn normal-case h-fit min-h-fit transition-all duration-300 border-4 w-full bg-color-brands hover:bg-color-brands hover:opacity-90 border-transparent mb-[20px] py-[14px] text-white font-bold rounded-xl shadow-lg cursor-pointer text-sm">Login to Shri-ms</button>
   
   <a class="text-center text-xs block text-[#8083A3] mb-[20px]" href="#">Forgot password?</a>
   

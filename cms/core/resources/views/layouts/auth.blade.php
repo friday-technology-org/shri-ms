@@ -2,7 +2,7 @@
 <html class="scroll-smooth overflow-x-hidden" lang="en">
   <head>
     <meta charset="utf-8">
-    <title>@yield('title', 'LaraCMS Admin Authentication')</title>
+    <title>@yield('title', 'Shri-ms Admin Authentication')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
     <link rel="icon" href="{{ asset('assets/images/icons/icon-favicon.svg') }}" type="image/x-icon" sizes="16x16">
     <link rel="stylesheet" href="{{ asset('assets/styles/tailwind.min.css') }}?v=5.0">

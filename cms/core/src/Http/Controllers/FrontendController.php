@@ -127,7 +127,7 @@ class FrontendController extends Controller
         }
 
         if (!view()->exists('theme::index')) {
-            return 'Welcome to LaraCMS (Homepage)';
+            return 'Welcome to Shri-ms (Homepage)';
         }
 
         $posts = Post::where('post_type', 'post')

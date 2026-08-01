@@ -1,6 +1,6 @@
-# LaraCMS Plugin Handbook
+# Shri-ms Plugin Handbook
 
-Welcome to the LaraCMS Plugin Developer Handbook! Plugins allow you to extend the core functionality of LaraCMS without modifying core files.
+Welcome to the Shri-ms Plugin Developer Handbook! Plugins allow you to extend the core functionality of Shri-ms without modifying core files.
 
 ## Directory Structure
 
@@ -23,13 +23,13 @@ cms-content/
 
 ## `plugin.json`
 
-Every plugin requires a `plugin.json` file in its root directory. This tells LaraCMS how to identify your plugin.
+Every plugin requires a `plugin.json` file in its root directory. This tells Shri-ms how to identify your plugin.
 
 ```json
 {
     "name": "My Custom Plugin",
     "slug": "my-custom-plugin",
-    "description": "Extends LaraCMS with amazing new features.",
+    "description": "Extends Shri-ms with amazing new features.",
     "version": "1.0.0",
     "author": "Your Name"
 }
@@ -85,7 +85,7 @@ return new class extends PluginBase
 
 ## Action and Filter Hooks
 
-LaraCMS supports a robust, WordPress-style hook system.
+Shri-ms supports a robust, WordPress-style hook system.
 
 ### Actions
 Actions allow you to add custom code at specific points in the execution lifecycle.
@@ -115,7 +115,7 @@ $content = apply_filters('the_content', $post->content);
 
 ## Registering Custom Post Types (CPTs)
 
-Plugins can dynamically register new Post Types. Since LaraCMS uses a generic `posts` table (like WordPress), you only need to register the configuration in the database or via the admin UI. The `ContentController` will automatically handle routing and CRUD operations.
+Plugins can dynamically register new Post Types. Since Shri-ms uses a generic `posts` table (like WordPress), you only need to register the configuration in the database or via the admin UI. The `ContentController` will automatically handle routing and CRUD operations.
 
 You can register a CPT during activation:
 
@@ -134,7 +134,7 @@ public function activate(): void
 
 ## Creating Plugins via Artisan
 
-LaraCMS provides an Artisan command to quickly scaffold a new plugin:
+Shri-ms provides an Artisan command to quickly scaffold a new plugin:
 
 ```bash
 php artisan cms:make-plugin my-new-plugin

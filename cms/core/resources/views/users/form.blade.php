@@ -1,6 +1,6 @@
 @extends('cms-core::layouts.admin')
 
-@section('title', isset($user) ? 'Edit User - LaraCMS' : 'Create User - LaraCMS')
+@section('title', isset($user) ? 'Edit User - Shri-ms' : 'Create User - Shri-ms')
 
 @section('content')
 <div>

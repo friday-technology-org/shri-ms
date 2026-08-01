@@ -108,7 +108,7 @@ class BackupService
             $dbName = config('database.connections.mysql.database');
             $tableKey = 'Tables_in_' . $dbName;
 
-            $sql = "-- LaraCMS Database Backup\n";
+            $sql = "-- Shri-ms Database Backup\n";
             $sql .= "-- Generated: " . date('Y-m-d H:i:s') . "\n\n";
             $sql .= "SET FOREIGN_KEY_CHECKS=0;\n\n";
 

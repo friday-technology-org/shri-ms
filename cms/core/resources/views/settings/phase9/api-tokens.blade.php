@@ -1,6 +1,6 @@
 @extends('cms-core::layouts.admin')
 
-@section('title', 'API Tokens - LaraCMS')
+@section('title', 'API Tokens - Shri-ms')
 
 @section('content')
 <div>

@@ -27,7 +27,7 @@ class CmsCacheClearCommand extends Command
         // Clear static page cache if files exist
         \Cms\Core\Http\Middleware\PageCache::clear();
 
-        $this->info('All LaraCMS caches cleared successfully.');
+        $this->info('All Shri-ms caches cleared successfully.');
         return 0;
     }
 }

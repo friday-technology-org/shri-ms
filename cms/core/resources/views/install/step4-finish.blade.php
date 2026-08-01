@@ -8,14 +8,14 @@
     </div>
     <h2 class="text-3xl font-bold text-gray-900 dark:text-white">Installation Successfully Completed!</h2>
     <p class="text-gray-500 dark:text-gray-400 text-sm max-w-md mx-auto leading-relaxed pb-6">
-      LaraCMS has been successfully installed. Database migrations have been executed, default options seeded, and your Super Administrator account has been configured.
+      Shri-ms has been successfully installed. Database migrations have been executed, default options seeded, and your Super Administrator account has been configured.
     </p>
   </div>
 
   <div class="bg-[#F8FAFC] dark:bg-[#0D1536] p-5 rounded-xl max-w-md mx-auto text-left text-xs text-gray-600 dark:text-gray-400 border border-[#E8EDF2] dark:border-[#1B254B] space-y-2.5 mt-10">
     <div class="flex justify-between items-center">
       <span class="font-bold uppercase tracking-wider text-gray-500">Site Title:</span>
-      <span class="text-gray-900 dark:text-white font-bold text-sm">{{ cms_option('site_title', 'LaraCMS') }}</span>
+      <span class="text-gray-900 dark:text-white font-bold text-sm">{{ cms_option('site_title', 'Shri-ms') }}</span>
     </div>
     <div class="flex justify-between items-center">
       <span class="font-bold uppercase tracking-wider text-gray-500">Version:</span>

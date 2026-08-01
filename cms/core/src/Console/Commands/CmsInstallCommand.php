@@ -13,15 +13,15 @@ class CmsInstallCommand extends Command
 
     public function handle()
     {
-        $this->info('=== Welcome to LaraCMS Installer ===');
+        $this->info('=== Welcome to Shri-ms Installer ===');
 
         if (file_exists(storage_path('app/.installed'))) {
-            if (!$this->confirm('LaraCMS is already installed. Do you want to reinstall?', false)) {
+            if (!$this->confirm('Shri-ms is already installed. Do you want to reinstall?', false)) {
                 return 0;
             }
         }
 
-        $siteName = $this->ask('Enter Site Name', 'LaraCMS Site');
+        $siteName = $this->ask('Enter Site Name', 'Shri-ms Site');
         $email = $this->ask('Enter Admin Email Address', 'admin@example.com');
         $password = $this->secret('Enter Admin Password');
 
@@ -50,7 +50,7 @@ class CmsInstallCommand extends Command
         // Write lock file
         File::put(storage_path('app/.installed'), '1');
 
-        $this->info('LaraCMS installed successfully!');
+        $this->info('Shri-ms installed successfully!');
         return 0;
     }
 }

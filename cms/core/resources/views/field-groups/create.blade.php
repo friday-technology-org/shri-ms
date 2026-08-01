@@ -1,6 +1,6 @@
 @extends('cms-core::layouts.admin')
 
-@section('title', 'Add New Field Group - LaraCMS')
+@section('title', 'Add New Field Group - Shri-ms')
 
 @section('content')
 <form action="{{ route('cms.field-groups.store') }}" method="POST" id="field-group-form">

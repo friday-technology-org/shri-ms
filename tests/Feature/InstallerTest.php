@@ -56,7 +56,7 @@ class InstallerTest extends TestCase
     public function test_full_installation_process(): void
     {
         $response = $this->post('/install/process', [
-            'site_title' => 'Test LaraCMS',
+            'site_title' => 'Test Shri-ms',
             'site_tagline' => 'Testing installation process',
             'admin_name' => 'Admin User',
             'admin_email' => 'admin@test.com',
@@ -68,7 +68,7 @@ class InstallerTest extends TestCase
 
         $this->assertDatabaseHas('cms_options', [
             'option_name' => 'site_title',
-            'option_value' => 'Test LaraCMS',
+            'option_value' => 'Test Shri-ms',
         ]);
 
         $this->assertDatabaseHas('users', [

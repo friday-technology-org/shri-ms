@@ -1,6 +1,6 @@
 @extends('cms-core::layouts.admin')
 
-@section('title', 'Activity Audit Trail - LaraCMS')
+@section('title', 'Activity Audit Trail - Shri-ms')
 
 @section('content')
 <div class="space-y-6">

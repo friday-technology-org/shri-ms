@@ -1,6 +1,6 @@
 @extends('cms-core::layouts.admin')
 
-@section('title', 'Site Health & Maintenance - LaraCMS')
+@section('title', 'Site Health & Maintenance - Shri-ms')
 
 @section('content')
 <div class="space-y-6">

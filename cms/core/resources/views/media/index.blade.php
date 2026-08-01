@@ -1,6 +1,6 @@
 @extends('cms-core::layouts.admin')
 
-@section('title', 'Media Library - LaraCMS')
+@section('title', 'Media Library - Shri-ms')
 
 @section('content')
 <div x-data="mediaLibrary()" x-init="init()">

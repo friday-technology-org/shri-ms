@@ -1,6 +1,6 @@
 @extends('cms-core::layouts.admin')
 
-@section('title', 'Edit Page - LaraCMS')
+@section('title', 'Edit Page - Shri-ms')
 
 @section('content')
 <form action="{{ route('cms.pages.update', $page->id) }}" method="POST">

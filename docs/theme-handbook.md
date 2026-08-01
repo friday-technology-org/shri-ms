@@ -1,6 +1,6 @@
-# LaraCMS Theme Handbook
+# Shri-ms Theme Handbook
 
-Welcome to the LaraCMS Theme Developer Handbook! LaraCMS themes use standard Laravel Blade templating mixed with classic WordPress-style concepts (like `theme.json`, the Template Hierarchy, and Page Templates).
+Welcome to the Shri-ms Theme Developer Handbook! Shri-ms themes use standard Laravel Blade templating mixed with classic WordPress-style concepts (like `theme.json`, the Template Hierarchy, and Page Templates).
 
 ## Directory Structure
 
@@ -37,13 +37,13 @@ cms-content/
 
 ## `theme.json`
 
-Every theme requires a `theme.json` file in its root directory. This tells LaraCMS how to identify your theme.
+Every theme requires a `theme.json` file in its root directory. This tells Shri-ms how to identify your theme.
 
 ```json
 {
     "name": "My Custom Theme",
     "slug": "my-custom-theme",
-    "description": "A beautiful, modern LaraCMS theme.",
+    "description": "A beautiful, modern Shri-ms theme.",
     "version": "1.0.0",
     "author": "Your Name"
 }
@@ -51,9 +51,9 @@ Every theme requires a `theme.json` file in its root directory. This tells LaraC
 
 ## Template Hierarchy
 
-LaraCMS automatically routes frontend requests to the most specific Blade view available in your theme. Views are prefixed with the `theme::` namespace.
+Shri-ms automatically routes frontend requests to the most specific Blade view available in your theme. Views are prefixed with the `theme::` namespace.
 
-When resolving a URL (like a Post, Page, or Custom Post Type), LaraCMS checks your theme's `views/` directory in this order:
+When resolving a URL (like a Post, Page, or Custom Post Type), Shri-ms checks your theme's `views/` directory in this order:
 
 ### For Pages:
 1. `page-{slug}.blade.php` (e.g. `page-about-us.blade.php`)
@@ -73,7 +73,7 @@ When resolving a URL (like a Post, Page, or Custom Post Type), LaraCMS checks yo
 
 ## Page Templates
 
-Just like WordPress, LaraCMS supports completely custom Page Templates that users can select from a dropdown in the Admin UI.
+Just like WordPress, Shri-ms supports completely custom Page Templates that users can select from a dropdown in the Admin UI.
 
 To create a Page Template, create a new `.blade.php` file anywhere in your theme (e.g. `views/templates/landing.blade.php`) and add this special comment block at the very top:
 
@@ -88,13 +88,13 @@ To create a Page Template, create a new `.blade.php` file anywhere in your theme
 @endsection
 ```
 
-LaraCMS will detect this file, populate it in the **Page Attributes** dropdown in the editor, and securely override the Template Hierarchy to load it when selected. Note that Page Templates can only be applied to the `page` post type.
+Shri-ms will detect this file, populate it in the **Page Attributes** dropdown in the editor, and securely override the Template Hierarchy to load it when selected. Note that Page Templates can only be applied to the `page` post type.
 
 ## MVC within Themes
 
-LaraCMS supports full MVC (Model-View-Controller) development directly inside your themes! 
+Shri-ms supports full MVC (Model-View-Controller) development directly inside your themes! 
 
-To prevent class collisions between different themes, LaraCMS automatically generates a dynamic StudlyCase namespace based on your theme's slug (e.g., `namespace Theme\MyCustomTheme\Controllers;`).
+To prevent class collisions between different themes, Shri-ms automatically generates a dynamic StudlyCase namespace based on your theme's slug (e.g., `namespace Theme\MyCustomTheme\Controllers;`).
 
 Controllers should be explicitly loaded in your `functions.php`:
 ```php
@@ -103,7 +103,7 @@ require_once __DIR__ . '/Controllers/ExampleController.php';
 
 ## Asset Helpers
 
-LaraCMS themes are exposed to the public through the `public/themes` symlink directory. To easily reference your static assets without hardcoding the theme name, use these built-in helpers inside your Blade views:
+Shri-ms themes are exposed to the public through the `public/themes` symlink directory. To easily reference your static assets without hardcoding the theme name, use these built-in helpers inside your Blade views:
 
 - `theme_asset($path)`: Returns the full URL to an asset in the current theme. (e.g., `{{ theme_asset('assets/css/style.css') }}`)
 - `get_template_directory_uri()`: Returns the absolute URL to your active theme's root directory.
@@ -111,7 +111,7 @@ LaraCMS themes are exposed to the public through the `public/themes` symlink dir
 
 ## `functions.php`
 
-If you place a `functions.php` file in the root of your theme, LaraCMS will automatically load it when the theme is active. This is the perfect place to:
+If you place a `functions.php` file in the root of your theme, Shri-ms will automatically load it when the theme is active. This is the perfect place to:
 
 - Register Custom Shortcodes
 - Enqueue Assets (CSS/JS)
@@ -143,7 +143,7 @@ register_nav_menus([
 
 ## Creating Themes via Artisan
 
-LaraCMS provides an Artisan command to quickly scaffold a new theme:
+Shri-ms provides an Artisan command to quickly scaffold a new theme:
 
 ```bash
 php artisan cms:make:theme my-new-theme
@@ -162,7 +162,7 @@ Once a theme is created and set as active, you can use specialized Artisan comma
 All generated files will be placed into the correct directories and assigned the proper dynamic theme namespace (e.g., `Theme\MyCustomTheme\Controllers`).
 
 ### Theme Migrations
-You do not need any special commands to run your theme's migrations. Because LaraCMS integrates deeply with Laravel, any migrations located in the active theme's `Migrations/` directory will automatically be detected and executed whenever you run:
+You do not need any special commands to run your theme's migrations. Because Shri-ms integrates deeply with Laravel, any migrations located in the active theme's `Migrations/` directory will automatically be detected and executed whenever you run:
 ```bash
 php artisan migrate
 ```

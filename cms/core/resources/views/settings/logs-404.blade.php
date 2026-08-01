@@ -1,6 +1,6 @@
 @extends('cms-core::layouts.admin')
 
-@section('title', '404 Monitor - LaraCMS')
+@section('title', '404 Monitor - Shri-ms')
 
 @section('content')
 <div>

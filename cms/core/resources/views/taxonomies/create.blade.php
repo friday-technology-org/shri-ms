@@ -1,6 +1,6 @@
 @extends('cms-core::layouts.admin')
 
-@section('title', 'Add New Taxonomy - LaraCMS')
+@section('title', 'Add New Taxonomy - Shri-ms')
 
 @section('content')
 <form action="{{ route('cms.taxonomies.store') }}" method="POST">

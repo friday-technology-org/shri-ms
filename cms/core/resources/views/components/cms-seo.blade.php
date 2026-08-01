@@ -4,7 +4,7 @@
     $meta = app(\Cms\Core\Services\SeoHelper::class)->getMetaTags($post);
 @endphp
 
-<!-- LaraCMS Search Engine Optimization Engine -->
+<!-- Shri-ms Search Engine Optimization Engine -->
 <title>{{ $meta['title'] }}</title>
 <meta name="description" content="{{ $meta['description'] }}">
 <meta name="keywords" content="{{ $meta['keywords'] ?? '' }}">

@@ -32,7 +32,7 @@ class PageCache
         if (File::isFile($cacheFile) && (time() - File::lastModified($cacheFile) < $cacheLifetime)) {
             $content = File::get($cacheFile);
             return response($content)
-                ->header('X-LaraCMS-Cache', 'HIT')
+                ->header('X-Shri-ms-Cache', 'HIT')
                 ->header('Content-Type', 'text/html; charset=UTF-8');
         }
 
@@ -41,7 +41,7 @@ class PageCache
         // Only cache successful HTML responses
         if ($response->getStatusCode() === 200 && str_contains($response->headers->get('Content-Type', ''), 'text/html')) {
             File::put($cacheFile, $response->getContent());
-            $response->headers->set('X-LaraCMS-Cache', 'MISS');
+            $response->headers->set('X-Shri-ms-Cache', 'MISS');
         }
 
         return $response;

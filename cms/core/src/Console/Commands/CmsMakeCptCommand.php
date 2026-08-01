@@ -8,7 +8,7 @@ use Cms\Core\Models\PostType;
 class CmsMakeCptCommand extends Command
 {
     protected $signature = 'cms:make:cpt {name} {--plural=}';
-    protected $description = 'Generate a new Custom Post Type and register it in LaraCMS';
+    protected $description = 'Generate a new Custom Post Type and register it in Shri-ms';
 
     public function handle()
     {

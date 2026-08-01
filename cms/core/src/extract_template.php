@@ -1,6 +1,6 @@
 <?php
 
-$html = file_get_contents('/home/bipincodes/projects/laravel/friday-technology/lara-cms/html/cms-dashboard.html');
+$html = file_get_contents('/home/bipincodes/projects/laravel/friday-technology/shri-ms/html/cms-dashboard.html');
 
 // Extract Sidebar
 preg_match('/<aside.*?>.*?<\/aside>/s', $html, $sidebarMatches);
@@ -16,7 +16,7 @@ $layout = <<<HTML
 <html class="scroll-smooth overflow-x-hidden" lang="en">
   <head>
     <meta charset="utf-8">
-    <title>@yield('title', 'LaraCMS Dashboard')</title>
+    <title>@yield('title', 'Shri-ms Dashboard')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
     <link rel="icon" href="{{ asset('assets/images/icons/icon-favicon.svg') }}" type="image/x-icon" sizes="16x16">
     <link rel="stylesheet" href="{{ asset('assets/styles/tailwind.min.css') }}?v=5.0">
@@ -48,7 +48,7 @@ $mainContent = $mainMatches[1] ?? '';
 $dashboard = <<<HTML
 @extends('cms-core::layouts.admin')
 
-@section('title', 'Dashboard - LaraCMS')
+@section('title', 'Dashboard - Shri-ms')
 
 @section('content')
 $mainContent

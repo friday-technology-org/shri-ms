@@ -1,6 +1,6 @@
 @extends('cms-core::layouts.admin')
 
-@section('title', 'Edit Taxonomy - LaraCMS')
+@section('title', 'Edit Taxonomy - Shri-ms')
 
 @section('content')
 <form action="{{ route('cms.taxonomies.update', $taxonomy->id) }}" method="POST">

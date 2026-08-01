@@ -1,6 +1,6 @@
 @extends('cms-core::layouts.admin')
 
-@section('title', 'LaraCMS Core Updates')
+@section('title', 'Shri-ms Core Updates')
 
 @section('content')
 <div>
@@ -28,7 +28,7 @@
     @endif
 
     <div class="bg-white dark:bg-dark-neutral-bg border border-neutral dark:border-dark-neutral-border p-6 rounded-2xl">
-        <h3 class="text-lg font-bold text-gray-1100 dark:text-white border-b border-[#E8EDF2] dark:border-[#313442] pb-3 mb-4">LaraCMS Update Status</h3>
+        <h3 class="text-lg font-bold text-gray-1100 dark:text-white border-b border-[#E8EDF2] dark:border-[#313442] pb-3 mb-4">Shri-ms Update Status</h3>
         
         <div class="space-y-6">
             <div class="flex items-center gap-4 p-4 bg-purple-50 dark:bg-[#1e1b3a] border border-[#d2cbff] dark:border-[#3a3560] rounded-xl">
@@ -68,7 +68,7 @@
                 </button>
             </form>
             @else
-            <p class="text-sm text-green-600 font-semibold">Your LaraCMS core engine is fully up to date!</p>
+            <p class="text-sm text-green-600 font-semibold">Your Shri-ms core engine is fully up to date!</p>
             @endif
         </div>
     </div>

@@ -16,7 +16,7 @@ class CmsUpdateCommand extends Command
         $info = $upgradeService->checkVersion();
 
         if (!$info['has_update']) {
-            $this->info('LaraCMS is already up to date.');
+            $this->info('Shri-ms is already up to date.');
             return 0;
         }
 
@@ -25,7 +25,7 @@ class CmsUpdateCommand extends Command
             return 0;
         }
 
-        $this->info('Upgrading LaraCMS Core...');
+        $this->info('Upgrading Shri-ms Core...');
         $result = $upgradeService->performUpgrade();
 
         if ($result['success']) {

@@ -22,7 +22,7 @@
         </label>
         <div class="form-control">
           <div class="input-group border rounded-lg border-[#E8EDF2] dark:border-[#313442]">
-            <input type="text" name="site_title" id="site_title" value="{{ old('site_title', 'My LaraCMS Website') }}" class="input flex-1 bg-transparent text-gray-600 focus:outline-none dark:text-gray-dark-300 w-full py-3 px-4" required>
+            <input type="text" name="site_title" id="site_title" value="{{ old('site_title', 'My Shri-ms Website') }}" class="input flex-1 bg-transparent text-gray-600 focus:outline-none dark:text-gray-dark-300 w-full py-3 px-4" required>
           </div>
         </div>
       </div>
@@ -34,7 +34,7 @@
         </label>
         <div class="form-control">
           <div class="input-group border rounded-lg border-[#E8EDF2] dark:border-[#313442]">
-            <input type="text" name="site_tagline" id="site_tagline" value="{{ old('site_tagline', 'Just another LaraCMS site') }}" class="input flex-1 bg-transparent text-gray-600 focus:outline-none dark:text-gray-dark-300 w-full py-3 px-4">
+            <input type="text" name="site_tagline" id="site_tagline" value="{{ old('site_tagline', 'Just another Shri-ms site') }}" class="input flex-1 bg-transparent text-gray-600 focus:outline-none dark:text-gray-dark-300 w-full py-3 px-4">
           </div>
         </div>
       </div>
@@ -103,7 +103,7 @@
     </a>
 
     <button type="submit" class="btn normal-case h-fit min-h-fit transition-all duration-300 border-4 bg-color-brands hover:bg-color-brands hover:border-[#B2A7FF] dark:hover:border-[#B2A7FF] border-neutral-bg dark:border-dark-neutral-bg py-[11px] px-[23px] text-white">
-      Install LaraCMS →
+      Install Shri-ms →
     </button>
   </div>
 </form>

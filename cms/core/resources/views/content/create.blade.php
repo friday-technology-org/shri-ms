@@ -1,6 +1,6 @@
 @extends('cms-core::layouts.admin')
 
-@section('title', 'Add New ' . $cpt->singular_label . ' - LaraCMS')
+@section('title', 'Add New ' . $cpt->singular_label . ' - Shri-ms')
 
 @section('content')
 <form action="{{ route('cms.content.store', $cpt->name) }}" method="POST">

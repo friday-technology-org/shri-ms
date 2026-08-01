@@ -2,7 +2,7 @@
 <html class="scroll-smooth overflow-x-hidden" lang="en">
 <head>
   <meta charset="utf-8">
-  <title>LaraCMS Setup Wizard</title>
+  <title>Shri-ms Setup Wizard</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
   <link rel="icon" href="{{ asset('assets/images/icons/icon-favicon.svg') }}" type="image/x-icon" sizes="16x16">
   <link rel="stylesheet" href="{{ asset('assets/styles/tailwind.min.css?v=5.0') }}">
@@ -24,7 +24,7 @@
     <!-- Professional Brand Header -->
     <div class="p-6 sm:p-8 bg-white dark:bg-[#111C44] border-b border-[#E8EDF2] dark:border-[#1B254B] flex items-center justify-between">
       <div class="flex items-center gap-3">
-        <img src="{{ asset('assets/images/icons/icon-logo.svg') }}" alt="LaraCMS Logo" class="h-8">
+        <img src="{{ asset('assets/images/icons/icon-logo.svg') }}" alt="Shri-ms Logo" class="h-8">
       </div>
       <div class="text-right">
         <span class="text-xs font-bold uppercase tracking-wider text-color-brands bg-indigo-50 dark:bg-indigo-950/60 px-5 py-2 rounded-full border border-indigo-100 dark:border-indigo-900">

@@ -26,10 +26,10 @@ class UpgradeService
         // Mock checking updates from a remote repository API
         return [
             'current_version' => $currentVersion,
-            'latest_version' => '1.1.0',
-            'has_update' => version_compare('1.1.0', $currentVersion, '>'),
+            'latest_version' => '1.0.1',
+            'has_update' => version_compare('1.0.1', $currentVersion, '>'),
             'release_notes' => 'Features stability improvements, new GraphQL options, and bug fixes.',
-            'download_url' => 'https://github.com/lara-cms/core/releases/download/v1.1.0/core.zip',
+            'download_url' => 'https://github.com/friday-technology-org/shri-ms/releases/download/v1.0.1/core.zip',
         ];
     }
 
@@ -96,7 +96,7 @@ class UpgradeService
 
             return [
                 'success' => true,
-                'message' => 'LaraCMS Core successfully upgraded.',
+                'message' => 'Shri-ms Core successfully upgraded.',
             ];
 
         } catch (\Throwable $e) {

@@ -30,7 +30,7 @@ class DiagnosticsController extends Controller
                 'label' => 'PDO MySQL Driver',
                 'value' => extension_loaded('pdo_mysql') ? 'Enabled' : 'Disabled',
                 'status' => extension_loaded('pdo_mysql') ? 'good' : 'bad',
-                'message' => 'LaraCMS requires pdo_mysql extension to talk to the MySQL database.',
+                'message' => 'Shri-ms requires pdo_mysql extension to talk to the MySQL database.',
             ],
             'upload_directory' => [
                 'label' => 'Uploads Directory Writable',

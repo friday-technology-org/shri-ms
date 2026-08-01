@@ -1,6 +1,6 @@
 @extends('cms-core::layouts.admin')
 
-@section('title', 'Edit CPT - LaraCMS')
+@section('title', 'Edit CPT - Shri-ms')
 
 @section('content')
 <form action="{{ route('cms.post-types.update', $postType->id) }}" method="POST">

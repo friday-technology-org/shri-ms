@@ -1,6 +1,6 @@
 @extends('cms-core::layouts.admin')
 
-@section('title', 'Add New Page - LaraCMS')
+@section('title', 'Add New Page - Shri-ms')
 
 @section('content')
 <form action="{{ route('cms.pages.store') }}" method="POST">

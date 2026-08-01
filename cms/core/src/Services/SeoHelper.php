@@ -11,8 +11,8 @@ class SeoHelper
      */
     public function getMetaTags(?Post $post = null): array
     {
-        $siteTitle = cms_option('site_title', 'LaraCMS');
-        $siteDesc = cms_option('site_description', 'Just another LaraCMS site');
+        $siteTitle = cms_option('site_title', 'Shri-ms');
+        $siteDesc = cms_option('site_description', 'Just another Shri-ms site');
 
         if ($post) {
             $seoTitleFormat = $post->getMeta('seo_title');
